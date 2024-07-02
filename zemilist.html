@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+body {
+	font-family: 'Arial', sans-serif;
+	margin: 10px;
+	text-align: center;
+	padding-bottom: 40px;
+	background-color: rgba(110, 149, 200, 0.395);
+}
+
+h1{
+	/* margin-bottom: 10px; */
+	font-weight: bold;
+	font-size: 70px;
+}
+
+h2{
+	margin-bottom: 10px;
+	font-weight: bold;
+	font-size: 45px;
+}
+
+p{
+	/* margin-bottom: 70px; */
+	font-size: 17px;
+}
+  
+	/* スタイルの変更 */
+.diagnosis-link {
+	font-size: 30px;
+	display: inline-block;
+	padding: 15px;
+	text-align: left;
+	background-color: #e67e22;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 10px;
+	transition: background-color 0.3s ease; /* ホバー時のアニメーション */
+}
+
+.diagnosis-link:hover {
+  animation: rainbowAnimation 2s infinite; /* アニメーションの設定 */
+}
+
+@keyframes rainbowAnimation {
+  0% {
+    background-color: #ec4646; /* ピンク */
+  }
+  /* 25% {
+    background-color: #ADD8E6; 
+  } */
+  50% {
+    background-color: #2be92b; /* ミントグリーン */
+  }
+  /* 75% {
+    background-color: #FFD700; 
+  } */
+  100% {
+    background-color: #cc4cf3; /* ライトパープル */
+  }
+}
+
+/* .culum-container {
+    display: flex;
+    justify-content: space-around;
+    
+  } */
+
+  /* .culumn {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  } */
+
+  /* .culumn-content {
+    margin-top: 10px;
+  } */
+
+  div{
+  display: inline-block;
+  margin: 30px;
+}
+/* .m{
+ padding-top: 100px;
+} */
+
+    </style>
+  <!-- Additional meta tags, stylesheets, or scripts can be added here -->
+</head>
+<body>
+  <!-- Content of the web page goes here -->
+<div class="body">
+<h1>ゼミ診断テスト</h1>
+<div class="columns">
+	<div class="column">
+		<h2 class="m">ー松村ゼミー</h2>
+		<h3>ゼミ内容</h3>
+		<p>主にプログラミングが中心、<br><br>ウェブサイトを軸に制作をする。</p>
+	</div>
+	<div class="column">
+		<h2>ー坂口ゼミー</h2>
+		<h3>ゼミ内容</h3>
+		<p>ウェブデザインであり、<br><br>特にUI/UXに焦点を当てている。<br></p>
+	</div>
+	<div class="column">
+		<h2>ーhoehoeゼミー</h2>
+		<h3>ゼミ内容</h3>
+		<p>アートプロジェクトが中心<br><br>技術を用いたアートの作成が中心</p>
+	</div>
+	
+</div>
+
+
+
+
+  <!-- <div class="culum">
+	<div class="culum-content">
+  <h2>ー松村ゼミー</h2>
+    <h3>ゼミ内容</h3>
+    <p>プログラミングが中心、ウェブサイトの制作が中心</p>
+</div>
+
+<div class="culum-content">
+  <h2>ー坂口ゼミー</h2>
+    <h3>ゼミ内容</h3>
+    <p>デザインが中心、UI/UXが中心</p>
+  
+</div>
+
+<div class="culum-content">
+  <h2>ーhoehoeゼミー</h2>
+    <h3>ゼミ内容</h3>
+    <p>アートプロジェクトが中心、技術を用いたアートの作成が中心</p>
+</div> -->
+<br>
+  <a class="diagnosis-link" href="http://localhost:3002/index.html">診断してみる▶︎</a>
+
+  <!-- Additional HTML elements can be added as needed -->
+
+  <!-- JavaScript and other scripts can be added at the end of the body -->
+  <script src="zemiList.js"></script>
+</body>
+
+</html>
