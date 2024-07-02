@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=2.0">
+  <title>診断テスト</title>
+  <style>
+    body {
+      background-color: #ffffff; /* 背景の色を明るめのグレーに設定 */
+      font-family: 'Arial', sans-serif; /* フォントを指定 */
+    }
+
+    h1{
+      font-size: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 8px;
+      font-weight: bold;
+    }
+
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 30px;
+      padding-top: 30px;
+      font-weight: bold;
+      font-size: 30px;
+      text-decoration: underline;
+    }
+
+    .container2 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* padding-bottom: 8px; */
+      font-size: 20px;
+      /* border-bottom: 3px solid black; */
+      /* padding: 60px; */
+      text-align: center;
+    }
+    
+
+    .line {
+      border-bottom: 3px solid black;
+      padding-top: 100px;
+}
+
+.w-80p {
+  width: 35%;
+  padding-top: 10px;
+}
+
+    .body {
+      width: 33%;
+    }
+    .body2 {
+      width: 25%;
+    }
+
+    input[type="radio"] {
+  transform: scale(2);
+}
+
+    .result {
+      display: none;
+      background-color: #ffffff; /* 結果表示部分の背景色を白に設定 */
+      padding: 15px;
+      margin-top: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    }
+
+    .container button {
+      background-color: #007BFF; /* ボタンの背景色を青に設定 */
+      color: #fff; /* ボタンの文字色を白に設定 */
+      padding: 10px 20px;
+      /* border: none; */
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .container button:hover {
+      background-color: #0056b3; /* ホバー時の背景色を濃い青に設定 */
+    }
+
+    .container label {
+      display: block;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>診断テスト</h1>
+  <form id="quiz-form">
+    <p class="container">質問 1: 出席の厳しさ</p>
+    <div class="container2">
+      <label><input type="radio" name="q1" value="1" required></label>
+      <div class="body">
+      <label><input type="radio" name="q1" value="2" required></label>
+    </div>
+      <label><input type="radio" name="q1" value="3" required></label>
+  </div>
+  <img class="w-80p" src="https://firebasestorage.googleapis.com/v0/b/zemitest-b50ec.appspot.com/o/linefinal.jpg?alt=media&token=0cc0b1c7-1624-404f-b738-99e63cc813b3" style="display: block; margin: 0 auto;">
+  <div class="container2">
+<label>ゆるい方が良い</label>
+<div class="body2">
+<label>平均的がいい</label>
+</div>
+<label>厳しくても問題無い</label>
+</div>
+
+
+  <div class="line"></div>
+    <p class="container">質問 2: ゼミの内容について</p>
+    <div class="container2">
+    <label><input type="radio" name="q2" value="1" required></label>
+    <div class="body">
+    <label><input type="radio" name="q2" value="2" required></label>
+  </div>
+    <label><input type="radio" name="q2" value="3" required></label>
+  </div>
+  <img class="w-80p" src="https://firebasestorage.googleapis.com/v0/b/zemitest-b50ec.appspot.com/o/linefinal.jpg?alt=media&token=0cc0b1c7-1624-404f-b738-99e63cc813b3" style="display: block; margin: 0 auto;">
+  <div class="container2">
+<label>アートプロジェクトがしたい</label>
+<div class="body2">
+<label>プログラミングがしたい</label>
+</div>
+<label>デザインがしたい</label>
+</div>
+  <div class="line"></div>
+
+    <p class="container">質問 3: 活動時間について</p>
+    <div class="container2">
+    <label><input type="radio" name="q3" value="1" required></label>
+    <div class="body">
+    <label><input type="radio" name="q3" value="2" required></label>
+  </div>
+    <label><input type="radio" name="q3" value="3" required></label>
+  </div>
+  <img class="w-80p" src="https://firebasestorage.googleapis.com/v0/b/zemitest-b50ec.appspot.com/o/linefinal.jpg?alt=media&token=0cc0b1c7-1624-404f-b738-99e63cc813b3" style="display: block; margin: 0 auto;">
+  <div class="container2">
+<label>短いほうが良い</label>
+<div class="body2">
+<label>平均的</label>
+</div>
+<label>長くてもよい</label>
+</div>
+  <div class="line"></div>
+
+    <p class="container">質問 4: 人数の多さ</p>
+    <div class="container2">
+    <label><input type="radio" name="q4" value="1" required></label>
+    <div class="body">
+    <label><input type="radio" name="q4" value="2" required></label>
+  </div>
+    <label><input type="radio" name="q4" value="3" required></label>
+  </div>
+  <img class="w-80p" src="https://firebasestorage.googleapis.com/v0/b/zemitest-b50ec.appspot.com/o/linefinal.jpg?alt=media&token=0cc0b1c7-1624-404f-b738-99e63cc813b3" style="display: block; margin: 0 auto;">
+  <div class="container2">
+<label>少ないほうが良い</label>
+<div class="body2">
+<label>平均くらいが良い</label>
+</div>
+<label>多いほうが良い</label>
+</div>
+  <div class="line"></div>
+
+    <p class="container">質問 5: ゼミの形式について</p>
+    <div class="container2">
+    <label><input type="radio" name="q5" value="1" required></label>
+    <div class="body">
+    <label><input type="radio" name="q5" value="2" required></label>
+  </div>
+    <label><input type="radio" name="q5" value="3"required></label>
+  </div>
+  <img class="w-80p" src="https://firebasestorage.googleapis.com/v0/b/zemitest-b50ec.appspot.com/o/linefinal.jpg?alt=media&token=0cc0b1c7-1624-404f-b738-99e63cc813b3" style="display: block; margin: 0 auto;">
+  <div class="container2">
+<label>個人作業多め</label>
+<div class="body2">
+<label>偏らずバランスが良い</label>
+</div>
+<label>グループワーク多め</label>
+</div>
+  <div class="line"></div>
+
+    <p class="container">質問 6: 課題について</p>
+    <div class="container2">
+    <label><input type="radio" name="q6" value="1" required></label>
+    <div class="body">
+    <label><input type="radio" name="q6" value="2" required></label>
+  </div>
+    <label><input type="radio" name="q6" value="3" required></label>
+  </div>
+  <img class="w-80p" src="https://firebasestorage.googleapis.com/v0/b/zemitest-b50ec.appspot.com/o/linefinal.jpg?alt=media&token=0cc0b1c7-1624-404f-b738-99e63cc813b3" style="display: block; margin: 0 auto;">
+  <div class="container2">
+<label>比較的簡単だが量は多い</label>
+<div class="body2">
+<label>難易度と量のバランスがよい</label>
+</div>
+<label>比較的難しいが量は少ない</label>
+</div>
+  <div class="line"></div>
+
+    <p class="container">質問 7: 単位取得の難易度</p>
+    <div class="container2">
+    <label><input type="radio" name="q7" value="1" required></label>
+    <div class="body">
+    <label><input type="radio" name="q7" value="2" required></label>
+  </div>
+    <label><input type="radio" name="q7" value="3" required></label>
+  </div>
+  <img class="w-80p" src="https://firebasestorage.googleapis.com/v0/b/zemitest-b50ec.appspot.com/o/linefinal.jpg?alt=media&token=0cc0b1c7-1624-404f-b738-99e63cc813b3" style="display: block; margin: 0 auto;">
+  <div class="container2">
+<label>作業量は多いが比較的簡単</label>
+<div class="body2">
+<label>良いバランス</label>
+</div>
+<label>作業量は少ないが比較的難しい</label>
+</div>
+  <!-- <div class="line"></div> -->
+<br>
+<div class="container">
+    <button type="submit">結果を表示</button>
+  </div>
+    <!-- onclick="href='http://localhost:3002/result.html'">回答を送信</button> -->
+  </form>
+  <div class="result" id="result"></div>
+  <!-- <br> -->
+  <!-- <a href="chart.html" target="_blank">みんなの結果</a> -->
+  <script src="main.js"></script>
+</body>
+</html>
+
+

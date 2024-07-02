@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firebase Pie Chart</title>
+  <!-- Chart.js CDN -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.4/firebase-firestore.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Firebase CDN -->
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #f4f4f4;
+    }
+
+    h1 {
+      margin-top: 60px;
+      padding-bottom: 30px;
+      font-size: 50px;
+      text-align: center;
+      color: #333; /* ヘッダーの文字色を変更 */
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    #result-container {
+      margin-bottom: 16px;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      font-size: 70px;
+      text-align: center;
+    }
+
+    #myChart {
+      width: 500px;
+      height: 500px;
+      margin: 16px;
+    }
+
+    button {
+      margin: 20px 8px; /* ボタンのマージンを変更 */
+      padding: 15px 30px; /* ボタンのパディングを変更 */
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-size: 18px; /* ボタンのフォントサイズを変更 */
+    }
+    .button2 {
+      animation: rainbowAnimation 5s linear infinite; 
+	position: absolute;
+	margin-top: 500px;
+	/* margin: 100px; */
+    }
+
+    @keyframes rainbowAnimation {
+  0% {
+    background-color: #FFD700; /* ゴールデンイエロー */
+  }
+  20% {
+    background-color: #FFB6C1; /* ピンク */
+  }
+  40% {
+    background-color: #98FB98; /* ミントグリーン */
+  }
+  60% {
+    background-color: #87CEEB; /* スカイブルー */
+  }
+  80% {
+    background-color: #DDA0DD; /* ライトパープル */
+  }
+  100% {
+    background-color: #FF6347; /* トマト */
+  }
+  }
+
+    button:hover {
+      background-color: #0056b3;
+	transform: translateY(-5px);
+    }
+
+    .totalSum{
+	font-size: 40px;
+	margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+  <!-- <h1>診断結果</h1> -->
+  <!-- <div class=result-container id="result-container"></div> -->
+  <h1>みんなの診断結果</h1>
+  <div class="totalSum" id="totalSum"></div>
+  <!-- Canvas for the Pie Chart -->
+  <div class="container">
+    <canvas id="myChart" width="450" height="450"></canvas>
+  </div>
+  <div class="container">
+    <button class="container" type="submit" id="resultButton">Topへ戻る <br>↩︎</button>
+    <!-- <button class="button2" type="submit" id="movingButton">おまけ <br>bonus</button> -->
+  </div>
+  <!-- JavaScript and other scripts can be added at the end of the body -->
+  <script src="detail.js"></script>
+  <script>
+	function moveButton() {
+	  var button = document.getElementById("movingButton");
+	  var randomX = Math.floor(Math.random() * (window.innerWidth - 350));
+	//   var randomY = Math.floor(Math.random() * (window.innerHeight - 350));
+  
+	  button.style.left = randomX + "px";
+	//   button.style.top = randomY + "px";
+	}
+  
+     
+	setInterval(moveButton, 1000); 
+    </script>
+</body>
+</html>

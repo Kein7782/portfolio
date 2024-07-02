@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firebase Pie Chart</title>
+  <!-- Chart.js CDN -->
+	<script src="https://www.gstatic.com/firebasejs/9.6.4/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.6.4/firebase-firestore.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Firebase CDN -->
+  <style>
+		body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      /* height: 100vh; */
+      background-color: #f4f4f4;
+    }
+
+    h1 {
+      /* margin: 16px 0; */
+			margin-top: 60px;
+			padding-bottom: 50px;
+			font-size: 50px;
+			color: #333;
+			text-decoration: underline;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes moveIn {
+  from {
+    transform: translateY(100%); 
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+#result-container {
+	position: relative;
+  margin-bottom: 100px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  animation: fadeIn 3s ease, moveIn 3s ease;
+	font-size: 70px;
+	text-align: center;
+}
+
+    #myChart {
+      width: 300px;
+      height: 300px;
+      margin: 16px;
+    }
+
+		.button1 {
+      margin-left: 50px; /* ボタンのマージンを変更 */
+			margin-right: 10px;
+      padding: 15px 30px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 3s ease;
+			font-size: 18px;
+			margin-top: 30px;
+			margin-bottom: 20px;
+    }
+
+
+    .button2 {
+      margin-left: 50px; /* ボタンのマージンを変更 */
+			margin-right: 10px;
+      padding: 15px 30px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 3s ease, transform 0.5s ease;
+			font-size: 18px;
+			margin-top: 30px;
+			margin-bottom: 20px;
+			/* animation: rainbowAnimation 5s linear infinite;  */
+			/* position: absolute; */
+    }
+
+		@keyframes rainbowAnimation {
+  0% {
+    background-color: #FFD700; /* ゴールデンイエロー */
+  }
+  20% {
+    background-color: #FFB6C1; /* ピンク */
+  }
+  40% {
+    background-color: #98FB98; /* ミントグリーン */
+  }
+  60% {
+    background-color: #87CEEB; /* スカイブルー */
+  }
+  80% {
+    background-color: #DDA0DD; /* ライトパープル */
+  }
+  100% {
+    background-color: #FF6347; /* トマト */
+  }
+
+  }
+
+	button:hover {
+  background-color: #0056b3;
+  transform: translateY(-5px); /* ホバー時に上に移動 */
+}
+
+table {
+      border-collapse: collapse;
+      width: 50%;
+      margin: 20px auto;
+    }
+    th, td {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    #scoreTable {
+      display: none;
+    }
+    .toggleButton {
+      cursor: pointer;
+    }
+		.toggleText {
+      margin-right: 5px;
+			font-size: 30px;
+    }
+    .toggleIcon {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      border-top: 2px solid #000;
+      border-right: 2px solid #000;
+      transform: rotate(-45deg);
+      transition: transform 0.3s;
+    }
+    .toggleIcon.up {
+      transform: rotate(135deg);
+    }
+	</style>
+</head>
+<body>
+	<h1>診断結果</h1>
+	<div id="totalRespondents"></div>
+	<div class=result-container id="result-container"></div>
+
+	<!-- スコア表 -->
+	<div class="toggleButton" onclick="toggleScoreTable()">
+		<span class="toggleText">問題別スコア</span>
+		<span class="toggleIcon"></span>
+	</div>
+
+<table id="scoreTable">
+	<tr>
+    <th>QESTION</th>
+    <th>SCORE</th>
+  </tr>
+  <tr>
+    <td>Q1: 出席の厳しさ</td>
+    <td>+1</td>
+  </tr>
+  <tr>
+    <td>Q2: ゼミの内容について</td>
+    <td>+1</td>
+  </tr>
+  <tr>
+    <td>Q3: 活動時間について</td>
+    <td>+1</td>
+  </tr>
+  <tr>
+    <td>Q4: 人数の多さ</td>
+    <td>+1</td>
+  </tr>
+  <tr>
+    <td>Q5: ゼミの形式について</td>
+    <td>+1</td>
+  </tr>
+  <tr>
+    <td>Q6: 課題について</td>
+    <td>+1</td>
+  </tr>
+  <tr>
+    <td>Q7: 単位取得の難易度</td>
+    <td>+1</td>
+  </tr>
+	</table>
+
+	<script>
+		function toggleScoreTable() {
+    var scoreTable = document.getElementById("scoreTable");
+    var toggleIcon = document.querySelector(".toggleIcon");
+    if (scoreTable.style.display === "none") {
+      scoreTable.style.display = "table";
+      toggleIcon.classList.add("up");
+    } else {
+      scoreTable.style.display = "none";
+      toggleIcon.classList.remove("up");
+    }
+  }
+
+	</script>
+
+
+<div class="container">
+	<button class="button1" type="submit" id="resultButton">もう一度診断する <br>↩︎</button>
+	<button class="button2" type="submit" id="movingButton">みんなの結果を見る <br>↪︎</button>
+</div>
+	<script src="chartview.js"></script>
+</body>
+</html>
